@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skin-three-sable.vercel.app/sitemap.xml
