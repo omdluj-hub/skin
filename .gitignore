@@ -27,3 +27,5 @@ dist-ssr
 # Since the user wants to use images in the current directory, I will NOT ignore the 'images' and 'public/images' folders.
 # images/
 # public/images/
+.vercel
+.env*.local

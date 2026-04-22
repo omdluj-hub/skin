@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onAiClick?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onAiClick }) => {
   return (
     <footer className="bg-brand-secondary text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
@@ -25,7 +29,18 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-700/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
-          <p>&copy; {new Date().getFullYear()} Hoo Oriental Clinic Gumi. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Hoo Oriental Clinic Gumi. All rights reserved.
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                onAiClick?.();
+              }}
+              className="ml-4 text-gray-600 hover:text-brand-primary transition-colors italic"
+            >
+              for AI
+            </button>
+          </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-gray-300">개인정보처리방침</a>
             <a href="#" className="hover:text-gray-300">이용약관</a>

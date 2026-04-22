@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
 import Services from './components/Services';
 import ClinicInfo from './components/ClinicInfo';
 import Footer from './components/Footer';
+import AiGuide from './components/AiGuide';
 import { MessageSquare } from 'lucide-react';
 
 const App: React.FC = () => {
+  const [showAiGuide, setShowAiGuide] = useState(false);
+
+  if (showAiGuide) {
+    return <AiGuide onBack={() => setShowAiGuide(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-white selection:bg-brand-primary selection:text-white">
       <Header />
@@ -17,7 +24,7 @@ const App: React.FC = () => {
         <Services />
         <ClinicInfo />
       </main>
-      <Footer />
+      <Footer onAiClick={() => setShowAiGuide(true)} />
 
       {/* Floating CTA */}
       <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-4">
